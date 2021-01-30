@@ -27,7 +27,7 @@ export default function Candidates() {
     return (
         <>
         <Head>
-            <title>Ambassadors</title>
+            <title>Candidates</title>
         </Head>
         <Header></Header>
         <main>

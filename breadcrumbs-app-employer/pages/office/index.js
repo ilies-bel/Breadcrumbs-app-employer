@@ -1,15 +1,22 @@
-import React from 'react';
+import Head from 'next/head'
 
-function Office() {
+import BottomNav from '../../components/Layout/BottomNavigation'
+import Header from '../../components/Layout/Header'
 
-    return (
-        <>
-        <div>
-            LLLLLLL
-        </div>
-        </>
+export default function Office() {
+  return (
+    <>
+      <Head>
+        <title>Breadcumbs</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-    );
+      <Header/>
+      <main>
+        Office
+      </main>
+
+      <BottomNav/>
+    </>
+  )
 }
-
-export default Office;

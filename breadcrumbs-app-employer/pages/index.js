@@ -12,16 +12,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header>
-
-      </Header>
+      <Header/>
       <main className={styles.main}>
         Accueil
       </main>
 
-      <BottomNav>
-        
-      </BottomNav>
+      <BottomNav/>
     </div>
   )
 }
