@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import BottomNav from '../../components/Layout/BottomNavigation'
+import BottomNav from '../../components/Layout/DrawerLeft'
 import Header from '../../components/Layout/Header'
 
 export default function Office() {

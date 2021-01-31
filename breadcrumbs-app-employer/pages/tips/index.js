@@ -1,5 +1,5 @@
 import React from 'react';
-import { BottomNav } from "../../components/Layout/BottomNavigation"
+import { BottomNav } from "../../components/Layout/DrawerLeft"
 
 const tipsList =  [
     {
