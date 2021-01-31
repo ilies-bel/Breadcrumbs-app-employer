@@ -20,3 +20,7 @@ const tipsList =  [
         description: "Prévoir un bloc-note"
     },
 ]
+
+export default (req, res) => {
+    res.status(200).json(tipsList)
+}

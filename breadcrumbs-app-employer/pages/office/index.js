@@ -1,4 +1,7 @@
 import Head from 'next/head'
+import Checkbox from "@material-ui/core/Checkbox";
+import TableCell from "@material-ui/core/TableCell";
+import React from "react";
 
 
 export default function Office() {
@@ -9,6 +12,10 @@ export default function Office() {
       </Head>
       <main>
         Office
+
+          <Checkbox
+
+          />
       </main>
 
     </>

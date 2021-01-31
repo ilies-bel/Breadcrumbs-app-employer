@@ -9,14 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import PropTypes from 'prop-types';
 
 const drawerWidth = 240;
-/*
-const useStyles = makeStyles((theme) => ({
-    appBar: {
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: drawerWidth,
-    },
-}));
-*/
+
 const styles = theme => ({
     appBar: {
         width: `calc(100% - ${drawerWidth}px)`,

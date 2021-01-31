@@ -1,6 +1,7 @@
 import React from 'react';
 import {AMBASSADORS_DESCRIPTION} from "../../constants/description"
 import Head from 'next/head';
+import Label from "../../components/Label";
 
 export default function Ambassadors() {
 
