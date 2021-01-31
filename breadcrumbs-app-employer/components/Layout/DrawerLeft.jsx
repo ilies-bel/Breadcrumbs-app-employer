@@ -71,7 +71,6 @@ const DrawerLeft = () => {
                         [ROUTES.AMBASSADORS, ROUTES.AMBASSADORS_LABEL],
                         [ROUTES.SOCIAL, ROUTES.SOCIAL_LABEL],
                         [ROUTES.INSIGHT, ROUTES.INSIGHT_LABEL]
-
                     ].map(([link, label], index) => (
                         <ListItem button key={index} component="a" href={link}>
                             <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>

@@ -24,6 +24,7 @@ const Candidates = ({users, error}) => {
 
     return (
         <>
+        <div>
             <Header>Candidate page header</Header>
 
             <Head>
@@ -58,7 +59,6 @@ const Candidates = ({users, error}) => {
                             )}
                             </tbody>)}
                     </table>
-                </main>
             </div>
         </>
 
