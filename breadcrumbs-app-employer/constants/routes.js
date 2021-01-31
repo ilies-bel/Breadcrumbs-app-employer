@@ -24,3 +24,4 @@ export const INSIGHT_LABEL = 'Insight';
 export const OFFICE_LABEL = 'Office';
 export const AMBASSADORS_LABEL = 'Question and answer';
 export const SOCIAL_LABEL = 'Social';
+
