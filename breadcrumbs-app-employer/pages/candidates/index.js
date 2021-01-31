@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import BottomNav from '../../components/Layout/BottomNavigation'
 import Header from '../../components/Layout/Header';
 import axios from 'axios';
 
@@ -29,9 +28,6 @@ const Candidates = ({users, error}) => {
             <Head>
                 <title>Candidates</title>
             </Head>
-            <BottomNav/>
-            <main>
-
 
                 <table>
                     <thead>
@@ -61,7 +57,6 @@ const Candidates = ({users, error}) => {
                         )}
                         </tbody>)}
                 </table>
-            </main>
 
         </>
     );

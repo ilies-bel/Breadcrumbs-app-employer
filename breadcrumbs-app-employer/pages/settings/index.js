@@ -12,13 +12,10 @@ function Settings() {
         <Head>
             <title>{SETTINGS}</title>
         </Head>
-        <Header></Header>
-        <main>
-            <ul>
-
-            </ul>
-        </main>
         <SettingsNavigation/>
+        <ul>
+
+        </ul>
         </>
 
     );

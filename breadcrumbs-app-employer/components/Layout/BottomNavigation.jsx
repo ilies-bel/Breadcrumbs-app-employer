@@ -26,7 +26,7 @@ class BottomNav extends React.Component {
 
     render () {
         return(
-        <div>
+        <div className="bar">
             <BottomLink><Link href={CANDIDATES}>{CANDIDATES_LABEL}</Link> </BottomLink>
             <BottomLink><Link href={HIRING_PROCESS}>{HIRING_PROCESS_LABEL}</Link> </BottomLink>
             <BottomLink><Link href={TIPS}>{TIPS_LABEL}</Link> </BottomLink>
@@ -39,12 +39,11 @@ class BottomNav extends React.Component {
 
             <style jsx>{`
                 .bar {
+                    position: fixed;
                     display: flex;
                     flex-direction: column;
                     height: 100%;
-                    
                     left: -0.15%;
-                    right: 92.31%;
                 }            
             `}</style>
         </div>

@@ -28,12 +28,9 @@ class SettingsNavigation extends React.Component {
 
             <style jsx>{`
                 div {
-                    position: fixed;
-                    display: inline-block;
                     width: max-content;
                     height: 100%;
                     border: 1px solid #C0C3C7;
-                    top: 11.33%;
                 }
             `}
             </style>
