@@ -11,13 +11,11 @@ export default function Home() {
         <title>Breadcumbs</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <Header/>
+            
       <main className={styles.main}>
         Accueil
       </main>
 
-      <BottomNav/>
     </div>
   )
 }

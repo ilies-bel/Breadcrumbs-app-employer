@@ -31,12 +31,11 @@ class BottomLink extends React.Component {
             <style jsx>
                 {`
                 span {
-                    width: 100%;
-                    height: 100px;
+                    height: 50px;
                     display: inline-block;
-                    width: min-content;
                     padding: 30px;
-                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
                     }
                     `}
             </style>

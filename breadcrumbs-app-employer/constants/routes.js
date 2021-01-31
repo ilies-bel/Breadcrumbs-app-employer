@@ -21,12 +21,6 @@ export const ACCOUNT_TITLE = 'Account';
 export const PASSWORD_FORGET_TITLE = 'password forgotten';
 export const ADMIN_TITLE = 'Admin page';
 
-export const OFFICE_TITLE = 'Office';
-export const SOCIAL_TITLE = 'Social';
-export const TIPS_TITLE = 'Tips';
-export const AMBASSADORS_TITLE = 'Question / answer';
-export const HIRING_PROCESS_TITLE = 'Hiring process';
-
 export const OFFICE_LABEL = 'Office';
 export const SOCIAL_LABEL = 'Social';
 export const TIPS_LABEL = 'Tips';

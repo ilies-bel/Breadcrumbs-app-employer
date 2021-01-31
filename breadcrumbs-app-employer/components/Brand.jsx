@@ -8,9 +8,9 @@ class Brand extends React.Component {
     }
     render() {
         return (
-            <a href='/'>
-                <Image src='/icon-512x512.png' alt='logo' width="50px" height="50px"/>
-            </a>
+            <Link href='/'>
+                <span><Image src='/icon-512x512.png' alt='logo' width="50px" height="50px"/></span>
+            </Link>
             
         )
     }

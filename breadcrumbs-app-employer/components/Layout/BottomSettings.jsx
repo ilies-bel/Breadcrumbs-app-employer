@@ -33,8 +33,6 @@ class BottomSettings extends React.Component {
                     width: max-content;
                     height: 100%;
                     border: 1px solid #C0C3C7;
-                    left: -0.15%;
-                    right: 92.31%;
                     top: 11.33%;
                 }
             `}

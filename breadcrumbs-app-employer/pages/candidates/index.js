@@ -29,15 +29,24 @@ export default function Candidates() {
         <Head>
             <title>Candidates</title>
         </Head>
-        <Header></Header>
-        <main>
-            <h1>Candidates</h1>
-            {candidates.map((candidate, index) => 
-            <div key={index}>
-                <input type='checkbox'></input> <span>{candidate.name}</span> --- <span>{candidate.phone}</span>
-            </div>)}
-        </main>
-        <BottomNav/>
+
+        <h1>Candidates</h1>
+        {
+        candidates.map((candidate, index) => 
+            <RowCandidate key={index} candidate={candidate} />
+        )}
+        
         </>
         )
+}
+
+const RowCandidate = (props) => {
+    //const candidate = props.candidate
+    return(
+        <>
+        <div>
+            <input type='checkbox'></input> <span>{props.candidate.name}</span> --- <span>{props.candidate.phone}</span>
+        </div>
+        </>
+    )
 }

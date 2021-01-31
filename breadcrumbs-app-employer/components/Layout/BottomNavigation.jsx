@@ -17,21 +17,21 @@ class BottomNav extends React.Component {
 
     render () {
         return(
-        <div>
+        <div className='bar'>
+            <BottomLink><Link href="/candidates">Candidates</Link> </BottomLink>
            <BottomLink><Link href="/settings">Settings</Link></BottomLink>
-           <BottomLink><Link href="/candidates">Candidates</Link> </BottomLink>
             <BottomLink><Link href="/ambassadors">Question / Answer</Link> </BottomLink>
             <BottomLink><Link href="/office">Office</Link> </BottomLink>
 
             <style jsx>{`
-            position: fixed;
-            display: inline-block;
-            width: 100px;
-            height: 100%;
-            
-            left: -0.15%;
-            right: 92.31%;
-            top: 11.33%;
+                .bar {
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                    
+                    left: -0.15%;
+                    right: 92.31%;
+                }            
             `}</style>
         </div>
         )
