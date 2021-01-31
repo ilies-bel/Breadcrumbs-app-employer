@@ -27,7 +27,6 @@ class BottomNav extends React.Component {
     render () {
         return(
         <div>
-           <BottomLink><Link href={SETTINGS}>{SETTINGS_LABEL}</Link></BottomLink>
             <BottomLink><Link href={CANDIDATES}>{CANDIDATES_LABEL}</Link> </BottomLink>
             <BottomLink><Link href={HIRING_PROCESS}>{HIRING_PROCESS_LABEL}</Link> </BottomLink>
             <BottomLink><Link href={TIPS}>{TIPS_LABEL}</Link> </BottomLink>
