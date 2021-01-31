@@ -1,6 +1,15 @@
 import Link from 'next/link';
 import React from 'react';
 import BottomLink from '../BottomLink';
+import {
+    AMBASSADORS,
+    AMBASSADORS_LABEL,
+    CANDIDATES,
+    CANDIDATES_LABEL, HIRING_PROCESS, HIRING_PROCESS_LABEL, INSIGHT, INSIGHT_LABEL, OFFICE,
+    OFFICE_LABEL,
+    SETTINGS,
+    SETTINGS_LABEL, SOCIAL, SOCIAL_LABEL, TIPS, TIPS_LABEL
+} from "../../constants/routes";
 
 class BottomNav extends React.Component {
     constructor(props) {
@@ -18,10 +27,16 @@ class BottomNav extends React.Component {
     render () {
         return(
         <div>
-           <BottomLink><Link href="/settings">Settings</Link></BottomLink>
-           <BottomLink><Link href="/candidates">Candidates</Link> </BottomLink>
-            <BottomLink><Link href="/ambassadors">Question / Answer</Link> </BottomLink>
-            <BottomLink><Link href="/office">Office</Link> </BottomLink>
+           <BottomLink><Link href={SETTINGS}>{SETTINGS_LABEL}</Link></BottomLink>
+            <BottomLink><Link href={CANDIDATES}>{CANDIDATES_LABEL}</Link> </BottomLink>
+            <BottomLink><Link href={HIRING_PROCESS}>{HIRING_PROCESS_LABEL}</Link> </BottomLink>
+            <BottomLink><Link href={TIPS}>{TIPS_LABEL}</Link> </BottomLink>
+            <BottomLink><Link href={OFFICE}>{OFFICE_LABEL}</Link> </BottomLink>
+            <BottomLink><Link href={AMBASSADORS}>{AMBASSADORS_LABEL}</Link> </BottomLink>
+            <BottomLink><Link href={SOCIAL}>{SOCIAL_LABEL}</Link> </BottomLink>
+            <BottomLink><Link href={INSIGHT}>{INSIGHT_LABEL}</Link> </BottomLink>
+
+
 
             <style jsx>{`
             position: fixed;

@@ -1,6 +1,6 @@
 import React from 'react';
-import BottomSettings from '../../components/Layout/BottomSettings';
-import BottomNav from '../../components/Layout/BottomSettings'
+import SettingsNavigation from '../../components/Layout/SettingsNavigation';
+import BottomNav from '../../components/Layout/SettingsNavigation'
 import Header from '../../components/Layout/Header'
 
 
@@ -14,7 +14,7 @@ function Settings() {
 
             </ul>
         </main>
-        <BottomSettings/>
+        <SettingsNavigation/>
         </>
 
     );

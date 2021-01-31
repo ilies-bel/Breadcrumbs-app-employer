@@ -3,7 +3,7 @@ import React from 'react';
 import BottomLink from '../BottomLink';
 import Label from '../Label';
 
-class BottomSettings extends React.Component {
+class SettingsNavigation extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,7 +22,7 @@ class BottomSettings extends React.Component {
             <h1>Settings</h1>
             <Label>Ambassadors</Label>
            <Label>Calendar</Label>
-           <Label>Intégrations</Label>
+           <Label>Integrations</Label>
            <Label>Interview Tips</Label>
            <Label>Notifications</Label>
 
@@ -45,4 +45,4 @@ class BottomSettings extends React.Component {
 
 }
 
-export default BottomSettings;
+export default SettingsNavigation;

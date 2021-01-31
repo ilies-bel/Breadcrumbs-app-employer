@@ -14,7 +14,7 @@ export default function Home() {
 
       <Header/>
       <main className={styles.main}>
-        Accueil
+        Home
       </main>
 
       <BottomNav/>
