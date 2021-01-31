@@ -13,7 +13,7 @@ export default function Home() {
       </Head>
             
       <main className={styles.main}>
-        Accueil
+        Home
       </main>
 
     </div>

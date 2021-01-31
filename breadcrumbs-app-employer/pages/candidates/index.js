@@ -1,52 +1,78 @@
 import Head from 'next/head'
 import BottomNav from '../../components/Layout/BottomNavigation'
 import Header from '../../components/Layout/Header';
+import axios from 'axios';
 
-const candidates = [
-    {
-        name: "Vanessa Cody",
-        Email: "email",
-        phone: "514-514-5144",
-        position: "HR Coordinator"
-    },
-    {
-        name: "Itachi Uchiha",
-        Email: "itachi@akatsuki.com",
-        phone: "Non renseigné",
-        position: "Lieutenant"
-    },
-    {
-        name: "Zorro",
-        Email: "Non renseigné",
-        phone: "22-333-5522",
-        position: "Bras droit"
-    }
-]
 
-export default function Candidates() {
+axios.defaults.baseURL = 'http://localhost:3000';
+
+
+const fetchData = async () => await
+    axios.get('/api/users')
+        .then(res => ({
+            error: false,
+            users: res.data,
+        }))
+        .catch(() => ({
+                error: true,
+                users: null,
+            }),
+        );
+
+
+const Candidates = ({users, error}) => {
+
     return (
         <>
-        <Head>
-            <title>Candidates</title>
-        </Head>
+            <Header>Candidate page header</Header>
 
-        <h1>Candidates</h1>
-        {
-        candidates.map((candidate, index) => 
-            <RowCandidate key={index} candidate={candidate} />
-        )}
-        
+            <Head>
+                <title>Candidates</title>
+            </Head>
+            <BottomNav/>
+            <main>
+
+
+                <table>
+                    <thead>
+                    <tr>
+                        <td></td>
+                        <td>First name</td>
+                        <td>Last name</td>
+                        <td>Mail</td>
+                        <td>Phone number</td>
+                        <td>Role</td>
+                    </tr>
+                    </thead>
+                    {error && <div>There was an error.</div>}
+                    {!error && users && (
+
+
+                        <tbody>
+                        {users.map((person, index) =>
+                            <tr key={index}>
+                                <td></td>
+                                <td>{person.first_name}</td>
+                                <td>{person.last_name}</td>
+                                <td>{person.mail}</td>
+                                <td>{person.phone_number}</td>
+                                <td>{person.role}</td>
+                            </tr>
+                        )}
+                        </tbody>)}
+                </table>
+            </main>
+
         </>
-        )
+    );
+};
+
+export const getServerSideProps = async () => {
+    const data = await fetchData();
+    return {
+        props: data,
+    };
 }
 
-const RowCandidate = (props) => {
-    //const candidate = props.candidate
-    return(
-        <>
-        <div>
-            <input type='checkbox'></input> <span>{props.candidate.name}</span> --- <span>{props.candidate.phone}</span>
-        </div>
-        </>
-    )
-}
+
+export default Candidates;

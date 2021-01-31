@@ -1,5 +1,6 @@
 import React from 'react';
-import BottomSettings from '../../components/Layout/BottomSettings';
+import SettingsNavigation from '../../components/Layout/SettingsNavigation';
+import BottomNav from '../../components/Layout/SettingsNavigation'
 import Header from '../../components/Layout/Header'
 import Head from 'next/head';
 import { SETTINGS } from "../../constants/title"
@@ -17,7 +18,7 @@ function Settings() {
 
             </ul>
         </main>
-        <BottomSettings/>
+        <SettingsNavigation/>
         </>
 
     );
