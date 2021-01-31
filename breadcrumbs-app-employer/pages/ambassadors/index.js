@@ -1,17 +1,15 @@
 import React from 'react';
-import Label from '../../components/Label';
-import BottomNav from '../../components/Layout/DrawerLeft';
-import Header from '../../components/Layout/Header';
 import {AMBASSADORS_DESCRIPTION} from "../../constants/description"
-
-
+import Head from 'next/head';
 
 export default function Ambassadors() {
 
     return (
         <>
-        <Header></Header>
-        <BottomNav/>
+        <Head>
+        <title>Ambassadors</title>
+        </Head>
+
         <main>
             <h2>Ambassadors</h2>
             <Label>{AMBASSADORS_DESCRIPTION}</Label>

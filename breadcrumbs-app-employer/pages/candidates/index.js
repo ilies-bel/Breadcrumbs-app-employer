@@ -1,17 +1,11 @@
 import Head from 'next/head'
-import BottomNav from '../../components/Layout/DrawerLeft'
+import BottomNav from '../../components/Layout/BottomNavigation'
 import Header from '../../components/Layout/Header';
 import axios from 'axios';
-import {makeStyles} from "@material-ui/core/styles";
 
 
 axios.defaults.baseURL = 'http://localhost:3000';
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        display: 'flex',
-    }
-}));
 
 const fetchData = async () => await
     axios.get('/api/users')
@@ -27,18 +21,14 @@ const fetchData = async () => await
 
 
 const Candidates = ({users, error}) => {
-    const classes = useStyles();
+
     return (
         <>
-            <div className={classes.root}>
-                <Header>Candidate page header</Header>
+            <Header>Candidate page header</Header>
 
-                <Head>
-                    <title>Candidates</title>
-                </Head>
-                <BottomNav/>
-                <main>
-
+            <Head>
+                <title>Candidates</title>
+            </Head>
 
                     <table>
                         <thead>
