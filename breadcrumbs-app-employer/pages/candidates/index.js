@@ -25,28 +25,20 @@ const candidates = [
     }
 ]
 
+const fetchData = async () => await
+    axios.get('http://localhost:3000/api/users')
+        .then(res => ({
+            error: false,
+            users: res.data,
+        }))
+        .catch(() => ({
+                error: true,
+                users: null,
+            }),
+        );
 
-function Candidates() {
-    const [users, setUsers] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
-    const fetchData = async () => {
-        await axios.get('http://localhost:3000/api/users')
-            .then(res => {
-                setError(false);
-                setUsers(prevState => [...prevState, ...res.data]);
-            })
-            .catch(() => {
-                setError(true);
-            })
-            .finally(() => {
-                setLoading(false);
-            });
-    };
 
-    useEffect(() => {
-        fetchData();
-    }, []);
+const Candidates = ({users, error}) => {
 
     return (
         <>
@@ -57,9 +49,9 @@ function Candidates() {
 
             <main>
 
-                    <header>
-                        <h1>List of candidates</h1>
-                    </header>
+                <header>
+                    <h1>List of candidates</h1>
+                </header>
                 <table>
                     <thead>
                     <tr>
@@ -71,31 +63,37 @@ function Candidates() {
                         <td>Role</td>
                     </tr>
                     </thead>
-                    {!error && loading && <div>Loading data...</div>}
                     {error && <div>There was an error.</div>}
                     {!error && users && (
 
 
-
-
-                            <tbody>
-                            {users.map((person, index) =>
-                                <tr key={index}>
-                                    <td></td>
-                                    <td>{person.first_name}</td>
-                                    <td>{person.last_name}</td>
-                                    <td>{person.mail}</td>
-                                    <td>{person.phone_number}</td>
-                                    <td>{person.role}</td>
-                                </tr>
-                            )}
-                            </tbody>)}
-                        </table>
+                        <tbody>
+                        {users.map((person, index) =>
+                            <tr key={index}>
+                                <td></td>
+                                <td>{person.first_name}</td>
+                                <td>{person.last_name}</td>
+                                <td>{person.mail}</td>
+                                <td>{person.phone_number}</td>
+                                <td>{person.role}</td>
+                            </tr>
+                        )}
+                        </tbody>)}
+                </table>
             </main>
 
         </>
     );
 };
+
+export const getServerSideProps = async () => {
+    const data = await fetchData();
+
+    return {
+        props: data,
+    };
+}
+
 
 export default Candidates;
 
