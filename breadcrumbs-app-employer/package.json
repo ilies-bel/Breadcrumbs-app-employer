@@ -15,7 +15,10 @@
     "react-redux": "^7.2.2",
     "redux": "^4.0.5",
     "@material-ui/core": "^4.11.3",
-    "axios": "^0.21.1"
+    "axios": "^0.21.1",
+    "@devexpress/dx-react-scheduler-material-ui": "2.7.4",
+    "@devexpress/dx-react-scheduler": "2.7.4",
+    "@devexpress/dx-react-core": "2.7.4"
   },
   "devDependencies": {
     "prop-types": "^15.7.2",
