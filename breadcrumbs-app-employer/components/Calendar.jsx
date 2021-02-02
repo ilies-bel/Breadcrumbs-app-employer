@@ -17,7 +17,7 @@ import axios from 'axios';
 //Requête à effectuer à chaque changement dans le calendrier
   axios.defaults.baseURL = 'http://localhost:3000';
   const fetchData = async (changedData) => await
-      axios.get(`/api/tips?data=${data}`)
+      axios.get(`/api/tips?data=${changedData}`)
           .then(res => (console.log(res.data)))
           .catch(() => ({
                   error: true,

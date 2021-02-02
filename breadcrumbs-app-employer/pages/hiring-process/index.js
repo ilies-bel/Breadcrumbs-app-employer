@@ -19,16 +19,24 @@ const style = {
 }
 
 const useEventSource = (url) => {
-    const [data, updateData] = useState(null);
+    let [data, updateData] = useState([]);
 
     useEffect(() => {
-        const source = new EventSource(url);
-
+        let source = new EventSource(url);
+        
+        source.onerror = function logError(e) {    
+            updateData("e - eeerero")
+        }
         source.onmessage = function logEvents(event) {      
             updateData(JSON.parse(event.data));     
         }
-    }, [])
+        return () => {
+            source.close();
+            //console.log('event closed')
+        }
 
+    }, [])
+//console.log(data)
     return data;
 }
 
@@ -49,11 +57,15 @@ const fetchData = async () => await
 export default function Hiring({resList, error}) {
     const [checked, setChecked] = useState(false);
     const [currentDate, setCurrentDate] = useState(null);
+    //const [reservations, setReservations] = useState([]);
     const toggleChecked = () => {
         setChecked((prev) => !prev);
       };
     
+    //reservations devra être passé en props dans calendar
     const reservations = useEventSource('http://localhost:8080/stream');
+    
+    
     
     return (
         <>
@@ -65,10 +77,19 @@ export default function Hiring({resList, error}) {
             <div>
                 <FormControlLabel
                     control={<Switch size="small" checked={checked} onChange={toggleChecked} />}
-                    label={checked ? 'Edit' : 'Stop editing'}
+                    label={!checked ? 'Edit' : 'Stop editing'}
                 />
                 {error && <div>There was an error.</div>}
-                {!error && resList && (<div style={style.calendar}>  <Calendar resList={reservations} /> </div>)}
+                {reservations ? reservations.map((r, i) =>
+                                (<div key={i}>{r.title}</div>) ) : <div>STREAM error</div> }
+                                {/* {console.log("reservation")}
+                                { reservations && console.log(reservations)}
+                                {console.log("/reservation")}
+                                {console.log("resList")}
+                                { resList && console.log(resList)}
+                                {console.log("/resList")} */}
+                                {/* {reservations && <div>{reservations}</div>} */}
+                {reservations.length > 0 ? (<div style={style.calendar}>  <Calendar resList={reservations} /> </div>) : <div>STREAM error</div>}
             </div>
 
             
