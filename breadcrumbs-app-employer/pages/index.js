@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import styles from '@/styles/Home.module.css'
 
-import BottomNav from '../components/Layout/DrawerLeft'
+import BottomNav from '@/components/Layout/DrawerLeft'
 import Header from '../components/Layout/Header'
 
 export default function Home() {
