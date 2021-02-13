@@ -13,7 +13,13 @@ function MyApp({ Component, pageProps }) {
     <div className="container">
     <BottomNav/>
       <main>
-      {!session ? <button onClick={() => signIn()}>Sign in</button> :  <div><p>Signed in as {session.user.email}</p><button onClick={() => signOut()}>Sign out</button></div>}
+      {!session 
+      ? <button onClick={() => signIn()}>Sign in</button> :  
+      <div>
+        <p>Signed in as {session.user.name}</p>
+        <button onClick={() => signOut()}>Sign out</button>
+        <textarea>{JSON.stringify(session)}</textarea>
+      </div>}
         <Component {...pageProps} />
       </main>
     </div>
