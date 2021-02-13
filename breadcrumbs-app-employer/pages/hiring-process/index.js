@@ -80,16 +80,7 @@ export default function Hiring({resList, error}) {
                     label={!checked ? 'Edit' : 'Stop editing'}
                 />
                 {error && <div>There was an error.</div>}
-                {reservations ? reservations.map((r, i) =>
-                                (<div key={i}>{r.title}</div>) ) : <div>STREAM error</div> }
-                                {/* {console.log("reservation")}
-                                { reservations && console.log(reservations)}
-                                {console.log("/reservation")}
-                                {console.log("resList")}
-                                { resList && console.log(resList)}
-                                {console.log("/resList")} */}
-                                {/* {reservations && <div>{reservations}</div>} */}
-                {reservations.length > 0 ? (<div style={style.calendar}>  <Calendar resList={reservations} /> </div>) : <div>STREAM error</div>}
+                {!error && resList && (<div style={style.calendar}>  <Calendar resList={resList} /> </div>)}
             </div>
 
             
