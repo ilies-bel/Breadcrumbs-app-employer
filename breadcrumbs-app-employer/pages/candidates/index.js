@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import BottomNav from '../../components/Layout/BottomNavigation'
-import Header from '../../components/Layout/Header';
+import BottomNav from '@/components/Layout/BottomNavigation'
+import Header from '@/components/Layout/Header';
 import axios from 'axios';
 
 
