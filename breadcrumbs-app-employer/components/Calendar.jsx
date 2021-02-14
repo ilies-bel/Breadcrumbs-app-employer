@@ -115,7 +115,7 @@ const Appointment = ({
   
     render() {
       const { currentDate, data } = this.state;
-  
+  if(data){
       return (
         <Paper>
           <Scheduler
@@ -142,6 +142,10 @@ const Appointment = ({
           </Scheduler>
         </Paper>
       );
+  }
+  else {
+    return(null)
+  }
     }
   }
   
