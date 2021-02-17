@@ -7,9 +7,7 @@ export default function Office() {
       <Head>
         <title>Office</title>
       </Head>
-      <main>
         Office
-      </main>
 
     </>
   )
