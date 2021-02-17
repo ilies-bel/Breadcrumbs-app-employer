@@ -13,11 +13,7 @@ export default function LoginPage({providers}) {
                 <input type='password' placeholder='password'></input>
             </form>
 
-            {Object.values(providers).map(provider => (
-        <div key={provider.name}>
-          <button onClick={() => signIn(provider.id)}>Sign in with {provider.name}</button>
-        </div>
-      ))}
+
 
         </div>
     )
