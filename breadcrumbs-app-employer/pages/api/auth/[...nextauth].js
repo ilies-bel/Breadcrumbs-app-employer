@@ -12,9 +12,14 @@ export default NextAuth({
             }),
       // ...add more providers here
       Providers.LinkedIn({
-          id: "linkedProviderId",
+        id: "linkedProviderId",
         clientId: "78xqyjqta1nc2n",
-        clientSecret: "LgW3aOtc0HgG5rL0"
+        clientSecret: "LgW3aOtc0HgG5rL0",
+        authorizationUrl: " https://www.linkedin.com/oauth/v2/authorization",
+        accessTokenUrl: "https://www.linkedin.com/oauth/v2/accessToken",
+        authorizationParams: {
+          grant_type: 'authorization_code'
+        }
       })
     ],
     pages: {
