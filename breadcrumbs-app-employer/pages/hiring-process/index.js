@@ -10,9 +10,8 @@ import { useSession } from 'next-auth/client';
 const style = {
     calendar: {
         width: "800px",
-        height: "500px",
+        height: "1000px",
         resize: "both",
-        overflow: "scroll"
     },
     form: {
         display: "inline-block"

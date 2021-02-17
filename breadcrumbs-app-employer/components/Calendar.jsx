@@ -120,7 +120,7 @@ const Appointment = ({
         <Paper>
           <Scheduler
             data={data}
-            height={660}
+            height={1000}
           >
             <ViewState
               currentDate={currentDate}
