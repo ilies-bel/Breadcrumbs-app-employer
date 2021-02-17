@@ -3,8 +3,10 @@ import styles from '@/styles/Home.module.css'
 
 import BottomNav from '@/components/Layout/DrawerLeft'
 import Header from '../components/Layout/Header'
+import { providers, signIn, signOut, useSession, Provider } from 'next-auth/client';
 
 export default function Home() {
+  const [ session, loading ] = useSession();
   return (
     <>
       <Head>
@@ -13,6 +15,13 @@ export default function Home() {
       </Head>
 
         Home
+        {!session ?
+        <button onClick={() => signIn()}>Sign in</button> :
+        <div>
+          <button onClick={() => signOut()}>Sign out</button>
+          <p>Signed as {session?.user?.name ?? "No one"}</p>
+        </div>
+        }
 
     </>
   )

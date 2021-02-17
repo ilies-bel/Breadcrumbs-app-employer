@@ -25,7 +25,6 @@ const Candidates = ({users, error}) => {
     return (
         <>
         <div>
-            <Header>Candidate page header</Header>
 
             <Head>
                 <title>Candidates</title>

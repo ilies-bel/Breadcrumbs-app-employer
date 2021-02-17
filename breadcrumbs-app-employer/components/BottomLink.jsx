@@ -20,7 +20,7 @@ class BottomLink extends React.Component {
             this.setState((state) => {
                 state.selected = !state.selected
             })
-            console.log(this.state.selected)
+            ///console.log(this.state.selected)
         }
     }    
 

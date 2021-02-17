@@ -7,7 +7,8 @@ export default NextAuth({
         Providers.Google({
             id: "google",
             clientId: "1030856253415-8qv7lejjga6im2od2u200glgqutrf8ee.apps.googleusercontent.com",
-            clientSecret: "YUtKAk1smVozdY3lM6tTjOyd"
+            clientSecret: "YUtKAk1smVozdY3lM6tTjOyd",
+            authorizationUrl: 'https://accounts.google.com/o/oauth2/v2/auth?prompt=consent&access_type=offline&response_type=code'
             }),
       // ...add more providers here
       Providers.LinkedIn({

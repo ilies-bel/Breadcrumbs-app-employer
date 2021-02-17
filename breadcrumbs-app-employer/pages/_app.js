@@ -2,25 +2,21 @@ import '../styles/globals.css'
 import Header from '../components/Layout/Header';
 import BottomNav from '../components/Layout/BottomNavigation';
 
-import { providers, signIn, signOut, useSession } from 'next-auth/client';
+import { providers, signIn, signOut, useSession, Provider } from 'next-auth/client';
+import button from './Authentification/login';
+import LoginPage from './Authentification/login';
 
-function MyApp({ Component, pageProps }) {
-  const [ session, loading ] = useSession();
-  console.log(Object.values(providers))
+function MyApp({ Component, pageProps, providers }) {
+  
   return (
     <>
-    <Header/>
+    
     <div className="container">
     <BottomNav/>
       <main>
-      {!session 
-      ? <button onClick={() => signIn()}>Sign in</button> :  
-      <div>
-        <p>Signed in as {session.user.name}</p>
-        <button onClick={() => signOut()}>Sign out</button>
-        <textarea>{JSON.stringify(session)}</textarea>
-      </div>}
-        <Component {...pageProps} />
+ 
+<Provider session={pageProps.session}><Header {...pageProps}/>
+      <Component {...pageProps} /></Provider>
       </main>
     </div>
     </>
