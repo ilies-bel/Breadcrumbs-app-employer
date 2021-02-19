@@ -10,21 +10,28 @@ import {
     SETTINGS,
     SETTINGS_LABEL, SOCIAL, SOCIAL_LABEL, TIPS, TIPS_LABEL
 } from "../../constants/routes";
+import {getSession} from "next-auth/client";
 
 class BottomNav extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             value: 0,
-            setValue: () => {}
+            setValue: () => {},
+            data: null
         }
         const handleChange = (event, newValue) => {
             //history.push(newValue);
             this.state.setValue(newValue);
         };
     }
+    componentDidMount() {
+        const session = getSession().then(response => { this.setState({data: response?.user}) })
+    }
 
     render () {
+        const { data } = this.state;
+        if(data) {
         return(
         <div className="bar">
             <BottomLink><Link href={CANDIDATES}>{CANDIDATES_LABEL}</Link> </BottomLink>
@@ -47,7 +54,12 @@ class BottomNav extends React.Component {
                 }            
             `}</style>
         </div>
-        )
+        )}
+        else {
+            return (
+                <BottomLink>Nothing to watch</BottomLink>
+            )
+        }
     };
 
 }
