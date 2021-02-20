@@ -13,7 +13,6 @@ export default function LoginPage({providers}) {
                 <input type='password' placeholder='password'></input>
                 <button type="submit">Submit</button>
             </form>
-            {console.log(providers)}
             {
                 providers && Object.values(providers).map((provider, index) =>
                     <div key={index}>
@@ -25,9 +24,11 @@ export default function LoginPage({providers}) {
             )
 }
 
-LoginPage.getInitialProps = async (context) => {
-  return {
-    providers: await providers(context)
-  }
+export const getServerSideProps = async (context) => {
+    const providers2 = await providers(context);
+    return {
+        props: {
+            providers: providers2
+        },
+    };
 }
-

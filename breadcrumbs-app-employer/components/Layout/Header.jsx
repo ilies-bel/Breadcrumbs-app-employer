@@ -42,8 +42,12 @@ const ProfileItem = (props) => {
     const data = props.data ?? null;
     return (
         <div className="profile">
-            <Label>{data && data.name}</Label>           
-            <Button onClick={() => signIn()} title="Sign in" ><Avatar src={data && data.image} /></Button>
+            <Label>{data && data.name}</Label>
+            {data ?
+                <Button onClick={() => signOut()} title="Sign out" ><Avatar src={data.image} /></Button> :
+                <Button onClick={() => signIn()} title="Sign in"> <Avatar/> </Button>
+            }
+
         </div>
     )
 }
