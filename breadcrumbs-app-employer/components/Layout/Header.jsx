@@ -42,7 +42,7 @@ const ProfileItem = (props) => {
     const data = props.data ?? null;
     return (
         <div className="profile">
-            <Label>{data && data.name}</Label>
+            <Label>{data && data.name[0]}</Label>
             {data ?
                 <Button onClick={() => signOut()} title="Sign out" ><Avatar src={data.image} /></Button> :
                 <Button onClick={() => signIn()} title="Sign in"> <Avatar/> </Button>
@@ -62,12 +62,13 @@ class Header extends React.Component {
     }
 
     componentDidMount() {
-        const session = getSession().then(response => { this.setState({data: response?.user}) })
+        const session = getSession().then(response => { this.setState({data: response}) })
     }
 
     render() {
         const { classes } = this.props;
         const { data } = this.state;
+        const dataUser = data?.user;
 
         return (
             <header>
@@ -78,7 +79,7 @@ class Header extends React.Component {
                             {this.props.children}
                         </Typography>
                         <Link href={SETTINGS}>{SETTINGS_LABEL}</Link>
-                        <ProfileItem data={data} />
+                        <ProfileItem data={dataUser}/>
                     </Toolbar>
                 </AppBar>
             </header>

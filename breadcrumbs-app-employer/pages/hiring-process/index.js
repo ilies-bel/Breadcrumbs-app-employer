@@ -40,7 +40,7 @@ const useEventSource = (url) => {
     return data;
 }
 
-axios.defaults.baseURL = 'http://localhost:3000';
+axios.defaults.baseURL = 'http://localhost:3001';
 const fetchData = async () => await
     axios.get('/api/recurrence')
         .then(res => ({
@@ -62,13 +62,10 @@ export default function Hiring({resList, error}) {
         setChecked((prev) => !prev);
       };
     
-    //reservations devra être passé en props dans calendar
-    const reservations = useEventSource('http://localhost:8080/stream');
-    
     if(!session) return (<strong>You must be signed in to view this page</strong>)
     if(loading) return (<strong>Loading ...</strong>)
     
-    return (
+    if(session) return (
         <>
             <h2>Hiring process</h2>
             

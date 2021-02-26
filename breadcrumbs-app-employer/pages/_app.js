@@ -6,17 +6,18 @@ import { providers, signIn, signOut, useSession, Provider } from 'next-auth/clie
 import button from './Authentification/login';
 import LoginPage from './Authentification/login';
 
-function MyApp({ Component, pageProps, providers }) {
+function MyApp({ Component, pageProps }) {
   
   return (
     <>
     
     <div className="container">
     <BottomNav/>
-      <main>
- 
-<Provider session={pageProps.session}><Header {...pageProps}/>
-      <Component {...pageProps} /></Provider>
+        <Header />
+        <main>
+        <Provider session={pageProps.session} >
+            <Component {...pageProps} />
+        </Provider>
       </main>
     </div>
     </>

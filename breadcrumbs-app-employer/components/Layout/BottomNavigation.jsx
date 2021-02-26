@@ -26,7 +26,7 @@ class BottomNav extends React.Component {
         };
     }
     componentDidMount() {
-        const session = getSession().then(response => { this.setState({data: response?.user}) })
+        const session = getSession().then(response => { this.setState({data: response }) })
     }
 
     render () {

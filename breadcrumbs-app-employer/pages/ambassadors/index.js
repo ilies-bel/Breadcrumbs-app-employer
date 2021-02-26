@@ -9,7 +9,6 @@ const useEventSource = (url) => {
 
     useEffect(() => {
         const source = new EventSource(url);
-
         source.onmessage = function logEvents(event) {      
             updateData(JSON.parse(event.data));     
         }
@@ -32,8 +31,6 @@ const fetchData = async () => await
         );
 
 export default function Ambassadors({facet, error}) {
-    const data2 = useEventSource('http://localhost:8080/stream');
-
     return (
         <>
         <Head>
@@ -42,14 +39,6 @@ export default function Ambassadors({facet, error}) {
 
             <h2>Ambassadors</h2>
             <Label>{AMBASSADORS_DESCRIPTION}</Label>
-            <h3>Ask a question</h3>
-            <div>
-            {error && <div>There was an error.</div>}
-            <p>{ data2 ? data2.event : "ERREUR de lecture de stream "}</p>
-            <ol>
-                <li>Firsy Ambassador</li>
-            </ol>
-            </div>
         
         </>
     );
