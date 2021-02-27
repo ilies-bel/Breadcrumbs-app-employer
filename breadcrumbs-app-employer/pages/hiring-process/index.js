@@ -79,7 +79,6 @@ export default function Hiring({resList, error}) {
                 />
                 {error && <div>There was an error.</div>}
                 {!error && resList && (<div style={style.calendar}>  <Calendar resList={resList} /> </div>)}
-                {session && console.log(session)}
             </div>
 
             

@@ -5,7 +5,6 @@ import { providers, signIn, signOut, useSession } from 'next-auth/client'
 
 export default function LoginPage({providers}) {
   const [ session, loading ] = useSession();
-  //let providers = props.providers
     return (
         <div>
             <form>

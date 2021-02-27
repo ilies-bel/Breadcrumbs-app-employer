@@ -2,12 +2,11 @@ import '../styles/globals.css'
 import Header from '../components/Layout/Header';
 import BottomNav from '../components/Layout/BottomNavigation';
 
-import { providers, signIn, signOut, useSession, Provider } from 'next-auth/client';
-import button from './Authentification/login';
-import LoginPage from './Authentification/login';
+import { Provider, getSession } from 'next-auth/client';
+import RestrictedPages from "./pagesAuthified";
 
 function MyApp({ Component, pageProps }) {
-  
+
   return (
     <>
     
@@ -15,8 +14,8 @@ function MyApp({ Component, pageProps }) {
     <BottomNav/>
         <Header />
         <main>
-        <Provider session={pageProps.session} >
-            <Component {...pageProps} />
+        <Provider >
+            <RestrictedPages children={ <Component {...pageProps} /> } />
         </Provider>
       </main>
     </div>

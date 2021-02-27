@@ -10,7 +10,6 @@ class BottomLink extends React.Component {
             hover: false
         }
         this.mouse = () => {
-            console.log("hover")
             this.setState((state) => {
                 state.hover = true
             })
