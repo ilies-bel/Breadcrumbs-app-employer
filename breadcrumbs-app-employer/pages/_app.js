@@ -3,7 +3,7 @@ import Header from '../components/Layout/Header';
 import BottomNav from '../components/Layout/BottomNavigation';
 
 import { Provider, getSession } from 'next-auth/client';
-import RestrictedPages from "./pagesAuthified";
+import RestrictedPages from "./pagesAuthentified";
 
 function MyApp({ Component, pageProps }) {
 
