@@ -75,14 +75,14 @@ const Candidates = ({users, error}) => {
             </div>
             <div className="ml-4">
             <div className="text-sm font-medium text-gray-900">{person.first_name} {person.last_name}</div>
-            <div className="text-sm text-gray-500">{person.Email}</div>
+                <Link href={`mailto:${person?.mail}`} ><div className={`text-sm text-gray-500 ${person?.mail && 'hover:text-gray-700 cursor-pointer '}`}>{person.mail}</div></Link>
             </div>
             </div>
             </td>
             <td className="px-6 py-4 whitespace-nowrap">
             <Link href={`tel:${person?.phone_number}`} >
                 <div className={`text-sm text-gray-500 ${person?.phone_number && 'hover:text-gray-700 cursor-pointer '}`}>
-                        {person?.phone_number ?? "unkown"}
+                        {person?.phone_number ?? "unknown"}
                 </div>
             </Link>
             </td>
