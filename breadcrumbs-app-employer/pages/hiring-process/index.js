@@ -40,7 +40,7 @@ const useEventSource = (url) => {
     return data;
 }
 
-axios.defaults.baseURL = 'http://localhost:3001';
+axios.defaults.baseURL = 'http://localhost:3000';
 const fetchData = async () => await
     axios.get('/api/recurrence')
         .then(res => ({
@@ -68,14 +68,12 @@ export default function Hiring({resList, error}) {
     if(session) return (
         <>
             <h2>Hiring process</h2>
-            
-            <Label>est</Label>
-            <h3>Hiring process</h3>
+            <br/>
 
             <div>
                 <FormControlLabel
                     control={<Switch size="small" checked={checked} onChange={toggleChecked} />}
-                    label={!checked ? 'Edit' : 'Stop editing'}
+                    label={!checked ? 'Locked' : 'Editing'}
                 />
                 {error && <div>There was an error.</div>}
                 {!error && resList && (<div style={style.calendar}>  <Calendar resList={resList} /> </div>)}

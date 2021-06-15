@@ -1,13 +1,16 @@
 /* eslint-disable react/destructuring-assignment */
 import * as React from 'react';
 import Paper from '@material-ui/core/Paper';
-import { ViewState, EditingState, IntegratedEditing } from '@devexpress/dx-react-scheduler';
+import {ViewState, EditingState, IntegratedEditing} from '@devexpress/dx-react-scheduler';
 import {
   Scheduler,
   WeekView,
   Appointments,
   AppointmentTooltip,
   DragDropProvider,
+  Toolbar,
+  DateNavigator,
+  TodayButton,
   EditRecurrenceMenu,
   AllDayPanel,
 } from '@devexpress/dx-react-scheduler-material-ui';
@@ -48,9 +51,10 @@ const Appointment = ({
       super(props);
       this.state = {
         data: this.props.resList,
-        currentDate: '2018-06-27',
+        currentDate: this.props.resList[4].startDate,
         isShiftPressed: false,
       };
+      this.currentDateChange = (currentDate) => { this.setState({ currentDate }); };
   
       this.commitChanges = this.commitChanges.bind(this);
       this.onKeyDown = this.onKeyDown.bind(this);
@@ -124,16 +128,20 @@ const Appointment = ({
           >
             <ViewState
               currentDate={currentDate}
+              onCurrentDateChange={this.currentDateChange}
             />
+            <WeekView
+                startDayHour={9}
+                endDayHour={18}
+            />
+            <Toolbar />
+            <DateNavigator />
+            <TodayButton />
             <EditingState
               onCommitChanges={this.commitChanges}
             />
             <IntegratedEditing />
-  
-            <WeekView
-              startDayHour={9}
-              endDayHour={17}
-            />
+
             <Appointments appointmentComponent={Appointment} />
             <AppointmentTooltip
               showDeleteButton
