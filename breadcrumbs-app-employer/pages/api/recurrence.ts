@@ -49,12 +49,6 @@ const recurrenceAppointments = [{
     endDate: new Date(2021, 5, 29, 13, 5),
     id: 7,
     location: 'Room 3',
-  }, {
-    title: 'Create Icons for Website',
-    startDate: new Date(2021, 5, 29, 10, 0),
-    endDate: new Date(2021, 5, 29, 11, 30),
-    id: 12,
-    location: 'Room 2',
   }];
 
   
