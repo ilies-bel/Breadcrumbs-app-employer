@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link';
 import BottomNav from '@/components/Layout/BottomNavigation'
 import Header from '@/components/Layout/Header';
 import axios from 'axios';
@@ -24,6 +25,7 @@ const Candidates = ({users, error}) => {
 
     return (
         <>
+            <Head><title> Candidates view</title></Head>
             <div className="flex flex-col">
             <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -78,8 +80,11 @@ const Candidates = ({users, error}) => {
             </div>
             </td>
             <td className="px-6 py-4 whitespace-nowrap">
-            <div className="text-sm text-gray-900">{person.title}</div>
-            <div className="text-sm text-gray-500">{person.phone_number}</div>
+            <Link href={`tel:${person?.phone_number}`} >
+                <div className={`text-sm text-gray-500 ${person?.phone_number && 'hover:text-gray-700 cursor-pointer '}`}>
+                        {person?.phone_number ?? "unkown"}
+                </div>
+            </Link>
             </td>
             <td className="px-6 py-4 whitespace-nowrap">
             <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${person.status==='active' ? 'bg-green-100' : 'bg-red-100'} text-green-800`}>
