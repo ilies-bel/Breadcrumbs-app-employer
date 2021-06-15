@@ -4,9 +4,10 @@ import styles from '@/styles/Home.module.css'
 import BottomNav from '@/components/Layout/DrawerLeft'
 import Header from '../components/Layout/Header'
 import { providers, signIn, signOut, useSession, Provider } from 'next-auth/client';
+import {useContext} from "react";
 
 export default function Home() {
-  const [ session, loading ] = useSession();
+    const [ session, loading ] = useSession();
   return (
     <>
       <Head>

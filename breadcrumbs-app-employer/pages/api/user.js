@@ -15,7 +15,7 @@ const results = [{
         last_name: "Thermos",
         mail: "nutella@ferrero.com",
         profile_picture_id: 3
-    }
+    },
 ]
 
 export default (req, res) => {

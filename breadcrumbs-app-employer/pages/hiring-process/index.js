@@ -10,9 +10,8 @@ import { useSession } from 'next-auth/client';
 const style = {
     calendar: {
         width: "800px",
-        height: "500px",
+        height: "1000px",
         resize: "both",
-        overflow: "scroll"
     },
     form: {
         display: "inline-block"
@@ -63,27 +62,21 @@ export default function Hiring({resList, error}) {
         setChecked((prev) => !prev);
       };
     
-    //reservations devra être passé en props dans calendar
-    const reservations = useEventSource('http://localhost:8080/stream');
-    
     if(!session) return (<strong>You must be signed in to view this page</strong>)
     if(loading) return (<strong>Loading ...</strong>)
     
-    return (
+    if(session) return (
         <>
             <h2>Hiring process</h2>
-            
-            <Label>est</Label>
-            <h3>Hiring process</h3>
+            <br/>
 
             <div>
                 <FormControlLabel
                     control={<Switch size="small" checked={checked} onChange={toggleChecked} />}
-                    label={!checked ? 'Edit' : 'Stop editing'}
+                    label={!checked ? 'Locked' : 'Editing'}
                 />
                 {error && <div>There was an error.</div>}
                 {!error && resList && (<div style={style.calendar}>  <Calendar resList={resList} /> </div>)}
-                {session && console.log(session)}
             </div>
 
             

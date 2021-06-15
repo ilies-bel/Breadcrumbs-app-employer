@@ -1,5 +1,6 @@
 import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers';
+import axios from "axios";
 
 export default NextAuth({
     // Configure one or more authentication providers
@@ -12,14 +13,44 @@ export default NextAuth({
             }),
       // ...add more providers here
       Providers.LinkedIn({
-          id: "linkedProviderId",
+        id: "linkedProviderId",
         clientId: "78xqyjqta1nc2n",
-        clientSecret: "LgW3aOtc0HgG5rL0"
-      })
+        clientSecret: "LgW3aOtc0HgG5rL0",
+        authorizationUrl: " https://www.linkedin.com/oauth/v2/authorization",
+        accessTokenUrl: "https://www.linkedin.com/oauth/v2/accessToken",
+        authorizationParams: {
+          grant_type: 'authorization_code'
+        }
+      }),
+       Providers.Credentials({
+            name: 'email',
+            credentials: {
+                email: { label: "user", type: "text", placeholder: "your email" },
+                password: { label: "type your password", type: "password" }
+            },
+            async authorize(credentials) {
+                let data = null;
+                const c = await axios.post(`http://localhost:3000/users/login`, {"user":{"email":credentials.email, "password":credentials.password}})
+                    .then(res => data = res.data.json )
+                if(data.token) {
+                    const token = data.token
+                    const dataUser = data.user;
+                    const name = [dataUser.first_name, dataUser?.last_name]
+                    const mail = dataUser.email
+                    const user = { id: 1, name: name, email: mail };
+                    //throw '/tips/dlo'
+                    return user
+                }
+                else {
+                    // throw '/tips/kfkfkffk';
+                    return null;
+                }
+            }
+        })
     ],
     pages: {
-        signIn: '/Authentification/login',
-        signOut: '/auth/signout',
+        //signIn: '/Authentification/login',
+        signOut: '/',
         error: '/auth/error', // Error code passed in query string as ?error=
         verifyRequest: '/auth/verify-request', // (used for check email message)
         newUser: null // If set, new users will be directed here on first sign in

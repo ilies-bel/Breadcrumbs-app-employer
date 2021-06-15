@@ -2,21 +2,23 @@ import '../styles/globals.css'
 import Header from '../components/Layout/Header';
 import BottomNav from '../components/Layout/BottomNavigation';
 
-import { providers, signIn, signOut, useSession, Provider } from 'next-auth/client';
-import button from './Authentification/login';
-import LoginPage from './Authentification/login';
+import { Provider, getSession } from 'next-auth/client';
+import RestrictedPages from "./pagesAuthentified";
 
-function MyApp({ Component, pageProps, providers }) {
-  
+import 'tailwindcss/tailwind.css'
+
+function MyApp({ Component, pageProps }) {
+
   return (
     <>
     
     <div className="container">
     <BottomNav/>
-      <main>
- 
-<Provider session={pageProps.session}><Header {...pageProps}/>
-      <Component {...pageProps} /></Provider>
+        <Header />
+        <main>
+        <Provider >
+            <RestrictedPages children={ <Component {...pageProps} /> } />
+        </Provider>
       </main>
     </div>
     </>
