@@ -34,9 +34,9 @@ class BottomNav extends React.Component {
         if(data) {
         return(
         <div className="bar">
-            <BottomLink><Link href={CANDIDATES}>{CANDIDATES_LABEL}</Link> </BottomLink>
-            <BottomLink><Link href={HIRING_PROCESS}>{HIRING_PROCESS_LABEL}</Link> </BottomLink>
-            <BottomLink><Link href={TIPS}>{TIPS_LABEL}</Link> </BottomLink>
+            <BottomLink selected={true}><Link href={CANDIDATES}>{CANDIDATES_LABEL}</Link> </BottomLink>
+            <BottomLink selected={true}><Link href={HIRING_PROCESS}>{HIRING_PROCESS_LABEL}</Link> </BottomLink>
+            <BottomLink selected={true}><Link href={TIPS}>{TIPS_LABEL}</Link> </BottomLink>
             <BottomLink><Link href={OFFICE}>{OFFICE_LABEL}</Link> </BottomLink>
             <BottomLink><Link href={AMBASSADORS}>{AMBASSADORS_LABEL}</Link> </BottomLink>
             <BottomLink><Link href={SOCIAL}>{SOCIAL_LABEL}</Link> </BottomLink>

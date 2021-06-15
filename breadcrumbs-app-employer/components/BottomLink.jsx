@@ -6,7 +6,7 @@ class BottomLink extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            selected: true,
+            selected: this.props.selected,
             hover: false
         }
         this.mouse = () => {
@@ -25,7 +25,7 @@ class BottomLink extends React.Component {
 
     render (){
         return(
-        <span onClick={this.handleClick}>
+        <span onClick={this.handleClick} className={this.state.selected ? 'selected' : 'unactive'}>
             {this.props.children}
             <style jsx>
                 {`

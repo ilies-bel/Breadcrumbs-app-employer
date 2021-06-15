@@ -5,6 +5,8 @@ import BottomNav from '../components/Layout/BottomNavigation';
 import { Provider, getSession } from 'next-auth/client';
 import RestrictedPages from "./pagesAuthentified";
 
+import 'tailwindcss/tailwind.css'
+
 function MyApp({ Component, pageProps }) {
 
   return (
