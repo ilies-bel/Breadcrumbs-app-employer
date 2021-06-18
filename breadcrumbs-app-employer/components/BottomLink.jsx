@@ -16,12 +16,12 @@ class BottomLink extends React.Component {
         }
         this.handleClick = () => {
             console.log("clicked")
-            this.setState((state) => {
-                state.selected = !state.selected
-            })
-            ///console.log(this.state.selected)
+            this.props.onChange(this.props.index)
         }
-    }    
+    }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        this.props.selected !== prevProps.selected && this.setState({selected: this.props.selected})
+    }
 
     render (){
         return(
